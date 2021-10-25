@@ -1,5 +1,5 @@
-# Node Social Network
-This CRUD app with user login and authentication allows you to create, update, and delete posts. All uploaded images are stored using Cloudinary. User account information is stored elsewhere in MongoDB.
+# Code Spaced
+CodeSpaced will be a flashcard program for programmers that will use spaced repetition, a technique supported by cognitive science for fast and long-lasting memorization. This idea uses dynamic flashcards for programmers to have the option to ask themselves how to solve a specific challenge or write a specific method, testing whether they are using the correct syntax. The app will give the user the option to use a built-in code editor to create the front and back of the card. When the user decides to study that specific card, the user will have to match the syntax in the back of the card to be able to mark that card as learned. An algorithm will run in the back-end of the app to identify how often the user will need to practice that specific card.  The user will have a better chance to retain the syntax indefinitely in memory as well as develop muscle memory for the next time the user has to type the code.
 
 <article>
       <div>
