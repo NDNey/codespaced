@@ -1,3 +1,5 @@
+ 
+
 <!doctype html>
 <html>
 <head>
@@ -5,68 +7,62 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
 </head>
 <body>
-<!-- <div class="container">
-
-    <div class="jumbotron text-center">
-        <h1>21 Savage Fan Site</h1>
-        <img src="img/savage21.jpg" alt="21 Savage Profile Photo">
-
-        <p>Login or Signup:</p>
-
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
-
-    </div>
-
-</div> -->
- 
-
-<main>
-    <div class="row">
-  
-    
-        <div class="col-md-6 mx-auto p-0">
-            <div class="card">
-                <div class="login-box">
-                  
-                    <div class="login-snip"><input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                        <div class="login-space">
-                            
-                         
-                            <form class="login" action="/login" method="post">
-                               
-                                <div class="group"> <label for="user" class="label">Email</label> <input  id="user" name="email" type="text" class="input " placeholder="Enter your username"> </div>
-                                <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
-                                <!-- <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div> -->
-                                <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
-                                <div class="hr"></div>
-                                <!-- <div class="foot"> <a href="#">Forgot Password?</a> </div> -->
-                            </form>
-                             <form class="sign-up-form" action="/signup" method="post">
-                                <!-- <div class="group"> <label for="user" class="label">Username</label> <input id="user" type="text" class="input" placeholder="Create your Username"> </div> -->
-                                <div class="group"> <label for="pass" class="label">Email</label> <input id="pass" name="email" type="text" class="input" placeholder="Enter your email address"> </div>
-                                <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Create your password"> </div>
-                                <!-- <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password"> </div> -->
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    <% if (locals.messages.info) { %>
+        <% messages.info.forEach( el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    <main>
+        <div class="row">
+      
+        
+            <div class="col-md-6 mx-auto p-0">
+                <div class="card">
+                    <div class="login-box">
+                      
+                        <div class="login-snip"><input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                            <div class="login-space">
                                 
-                                <div class="group"> <input type="submit" class="button" value="Sign Up"> </div>
-                                <div class="hr"></div>
-                                <!-- <div class="foot"> <label for="tab-1">Already Member?</label> </div> -->
-                            </form>
+                             
+                                <form class="login" action="/login" method="post">
+                                   
+                                    <div class="group"> <label for="user" class="label">Email</label> <input  id="user" name="email" type="text" class="input " placeholder="Enter your username"> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
+                                    <!-- <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div> -->
+                                    <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                                    <div class="hr"></div>
+                                    <!-- <div class="foot"> <a href="#">Forgot Password?</a> </div> -->
+                                </form>
+                                 <form class="sign-up-form" action="/signup" method="POST">
+                                    <div class="group"> <label for="user" class="label">User Name</label> <input id="userName" type="text" class="input" placeholder="Create your UserName"> </div>
+                                    <div class="group"> <label for="pass" class="label">Email address</label> <input id="exampleInputEmail1" name="email" type="text" class="input" placeholder="Enter your email address"> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Create your password"> </div>
+                                    <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="confirmPassword" type="password" class="input" data-type="password" placeholder="Repeat your password" name="confirmPassword"> </div>
+                                    
+                                    <div class="group"> <input type="submit" class="button" value="Sign Up"> </div>
+                                    <div class="hr"></div>
+                                    <!-- <div class="foot"> <label for="tab-1">Already Member?</label> </div> -->
+                                </form>
+                            </div>
+                         
                         </div>
-                        <% if (message.length > 0) { %>
-                            <div class="alert alert-danger"><%= message %></div>
-                        <% } %>
+                     
                     </div>
-                 
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+</div>
+</div>
 </body>
 </html>

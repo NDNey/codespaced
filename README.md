@@ -19,7 +19,15 @@ CodeSpaced will be a flashcard program for programmers that will use spaced repe
   - Fork the repo
   - Clone your forked repo.
   - Do 'npm install' in your terminal.
+   - In the config folder Create a `.env` file and add the following:
+  ```js 
+  PORT = 8000 'Or any port you would like'
+  DB_STRING = Your database URI 'I used MongoDB when testing'
+  CLOUD_NAME = Your cloudinary cloud name
+  API_KEY = Your cloudinary api key
+  API_SECRET = Your cloudinary api secret
+  ```
   - Run with 'npm start' in your terminal.
-  - Log in with 'admin@admin.com'  password: 'admin'
+  - SingUp and enjoy
 
 
