@@ -11,7 +11,7 @@ const cardSchema = new mongoose.Schema({
   },
    deckId: {
       type:  mongoose.Schema.Types.ObjectId,
-      ref: 'Decks',
+      ref: 'Deck',
     },
   // image: {
   //   type: String,

@@ -1,5 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
-const Card = require("../models/Cards");
+const Card = require("../models/Card");
 
 module.exports = {
   createCard: async (req, res) => {

@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Deck = require("../models/Deck");
+const Card = require("../models/Card")
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -12,8 +13,10 @@ module.exports = {
   },
   getCards: async (req, res) => {
     try {
-      // const post = await Deck.findById({deckId:req.params.id});
-      res.render("study.ejs");
+      console.log('hello',req.params.id)
+
+      const cards = await Card.find({deckId:req.params.id})
+      res.render("study.ejs", { cards: cards, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -42,11 +45,13 @@ module.exports = {
     try {
       // Find post by id
       let deck = await Deck.findById({ _id: req.params.id });
+      let cards = await Card.find({deckId:req.params.id})
       // Delete image from cloudinary
       // await cloudinary.uploader.destroy(post.cloudinaryId);
       // Delete post from db
       await Deck.remove({ _id: req.params.id });
-      console.log("Deleted Post");
+      await Card.remove({ deckId:req.params.id});
+      console.log("Deleted Deck");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");

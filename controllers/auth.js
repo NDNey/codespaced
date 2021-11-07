@@ -11,7 +11,7 @@ exports.getLogin = (req, res) => {
   });
 };
 
-exports.profileLogin = (req, res, next) => {
+exports.postLogin = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -63,7 +63,7 @@ exports.getSignup = (req, res) => {
   });
 };
 
-exports.profileSignup = (req, res, next) => {
+exports.postSignup = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -95,6 +95,7 @@ exports.profileSignup = (req, res, next) => {
         return next(err);
       }
       if (existingUser) {
+        console.log(req.body.email ,req.body.userName)
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });

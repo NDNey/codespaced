@@ -8,11 +8,12 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Main Routes - simplified for now
 router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, decksController.getProfile);
+router.get("/study/:id", ensureAuth, decksController.getCards);
 router.get("/login", authController.getLogin);
-router.post("/login", authController.profileLogin);
+router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
-router.post("/signup", authController.profileSignup);
+router.post("/signup", authController.postSignup);
 
 module.exports = router;
 
