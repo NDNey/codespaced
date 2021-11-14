@@ -1,53 +1,57 @@
- <!-- Rename Modal -->
-   <div class="modal fade" id="editDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Deck</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="" id="deck"> 
-            <input class="form-control" type="text" placeholder="Deck Name">
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" form="deck" class="btn btn-primary">Save changes</button>
-        </div>
+<!-- editdeck form -->
+<div class="modal fade" id="editDeck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Deck Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  </div>
- 
- 
- <!-- Add deck Modal -->
- 
- <div class="modal fade" id="addDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New Deck</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="/deck/newDeck" id="newDeck" method="POST"> 
-            <input class="form-control" type="text" name="title" placeholder="New Deck">
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" form="newDeck" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
- 
+      <div class="modal-body">
+        <form id="newDeckName" action="" method="post">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">New Name</label>
+            <input type="text" name="NewDeckName" class="form-control" id="title">
+          </div>
 
-<!-- add card 2.0 modal -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="newDeckName" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Adddeck Modal -->
+
+<div class="modal fade" id="addDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Deck</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/deck/newDeck" id="newDeck" method="POST">
+          <input class="form-control" type="text" name="title" placeholder="New Deck">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="newDeck" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- add card modal -->
 
 <div class="modal fade" id="addCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -59,25 +63,83 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="newCard"  action="" method="post">
-         
-         
+        <div id="alert" class="hidden alert alert-success" role="alert">
+          Card hass been added!
+        </div>
+
+        <div id="newCard">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Front</label>
-            <input type="text" name="front" class="form-control" id="recipient-name">
+            <input type="text" name="front" class="form-control" id="cardFrond">
           </div>
-          <div class="form-group">
+          <div class="form-group cardBack">
             <label for="message-text" class="col-form-label">Back</label>
-            <textarea name="back" class="form-control" id="message-text"></textarea>
+            <textarea name="back" class="back form-control" id="message-text"></textarea>
           </div>
+          <!-- codemirror -->
+
+
+          <div class="form-group cardBack hidden">
+            <input type="hidden" id="backCode" name="backCode" value="">
+            <label for="message-text" class="col-form-label">Back</label>
+            <%- include('./codeEditor'); %>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="openEditor" class="btn btn-secondary"><i class="far fa-file-code  "></i></button>
+        <button type="submit" id="submitCard" class="btn btn-primary">Save changes</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- edit card modal -->
+
+<div class="modal fade" id="editCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Card</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="editedCard" action="" method="post">
+          <input type="hidden" name="deckId" id="deckId">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Front</label>
+            <input type="text" id="front" name="front" class="form-control" id="recipient-name">
+          </div>
+          <!-- <div class="form-group">
+            <label for="message-text" class="col-form-label">Back</label>
+            <textarea type='text'  name="back" class="form-control" id="message-text"></textarea>
+          </div> -->
+
+          <div class="form-group cardBackText hidden ">
+            <label for="message-text" class="col-form-label">Back</label>
+            <textarea name="back" id="back" class="back form-control"></textarea>
+          </div>
+          <!-- codemirror -->
+
+          <div class="form-group cardBackCode ">
+            <input type="hidden" id="backCode" name="backCode" value="">
+            <label for="message-text" class="col-form-label">Back</label>
+            <%- include('./codeEditor'); %>
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="newCard" class="btn btn-primary">Save changes</button>
+        <button type="submit" form="editedCard" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-
- 

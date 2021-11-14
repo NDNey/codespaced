@@ -8,13 +8,114 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"></script>
 
-    <script>
-      $('#addCard').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var recipient = `/deck/newCard/${button.data('whatever')}`
-        var modal = $(this)
-        modal.find('.modal-body form').attr("action", recipient)
 
+    
+
+    <script src="/modals.js"></script>
+   
+    <script src="/codeEditor.js"></script>
+  
+    <!-- <script>
+      $('#addCard').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget)
+        let modal = $(this)
+        modal.find('.modal-footer #submitCard').attr("data-id", button.data('whatever'))
       })
-    </script>
+
+      $('#editDeck').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget)
+        let val = button.data('previousval')
+        let action = `/deck/editDeck/${button.data('whatever')}?_method=PUT`
+        let modal = $(this)
+        modal.find('.modal-body #newDeckName').attr("action", action)
+        modal.find('.modal-body #title').attr("value", val)
+      })
+
+      $('#editCard').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget)
+        let action = `/study/edit/${button.data('id')}?_method=PUT`
+        let deckId = button.data('deckid')
+        let front = button.data('front')
+        let back = button.data('back')
+        let modal = $(this)
+        modal.find('.modal-body #editedCard').attr("action", action)
+        modal.find('.modal-body #front').attr("value", front)
+        modal.find('.modal-body #deckId').attr("value", deckId)
+        modal.find('.modal-body #back').val( back)
+      })
+    </script> -->
+
+<!-- <script>
+ 
+ 
+  var editor = CodeMirror.fromTextArea(document.querySelector('.codeEditor'), {
+    lineNumbers: true,
+    mode:"xml",
+    mode:"javascript",
+    // mode:"css",
+      theme:"dracula",
+      lineWrapping:true,
+      autoCloseTags: true,
+      autoCloseBrackets: true,
+  
+    });
+    editor.refresh()
+  
+
+    document.querySelector('#openEditor').addEventListener('click',()=>{
+      editor.setValue('')
+      document.querySelectorAll('.cardBack').forEach(e => e.classList.toggle("hidden"))
+      document.querySelector('.back').value = ''
+    
+      // console.log(editor.getValue())
+      // editor.setValue()
+    })
+ 
+    
+  
+  </script> -->
+
+<!-- 
+<script>
+  
+// /send card to db
+document.querySelector('#submitCard').addEventListener('click', () => {
+  let front = document.querySelector('#cardFrond')
+  let back = document.querySelector('.back')
+  let alerta = document.querySelector('#alert')
+  let deckId = document.querySelector('#submitCard').getAttribute('data-id')
+  let codeCard = editor.getValue()
+  let mirror = document.querySelector('.CodeMirror').outerHTML 
+  if(!front.value.length){
+    alert('please input card content')
+    return
+  }
+  fetch(`/deck/newCard/${deckId}`, {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      front: front.value,
+        back: codeCard.length ? '' : back.value,
+        codeCard: back.value.length ? '' : codeCard,
+        mirror: mirror
+    })
+  }) 
+  front.value = ''
+  back.value = ''
+  editor.setValue('')
+alerta.classList.toggle("hidden")
+setTimeout(()=>{
+  alerta.classList.toggle("hidden")
+},2000)
+   
+});
+ 
+
+</script> -->
+  <style>
+    .hidden{
+      display: none;
+    }
+  </style>
+  
  

@@ -7,7 +7,13 @@ const cardSchema = new mongoose.Schema({
     required: true,
   },back: {
     type: String,
-    required: true,
+    required: false,
+  },codeCard: {
+    type: String,
+    required: false,
+  },mirror: {
+    type: String,
+    required: false,
   },
    deckId: {
       type:  mongoose.Schema.Types.ObjectId,

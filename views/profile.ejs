@@ -1,51 +1,57 @@
-
-    <%- include('./partials/header'); %>
- 
-  <table class="table table-hover">
-    <tbody>
-      <% for(var i=0; i<decks.length; i++) {%>
-        <tr>
-          <th scope="row">
-            <%= i + 1%>
-          </th>
-          <td><a href=" /study/<%= decks[i]._id%>">
-              <%= decks[i].title%>
-            </a></td>
-
-          <!-- <td>Otto</td> -->
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Options
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <!-- <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard"  data-whatever="@getbootstrap" >
-                Add Card
-               </button> -->
-                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard"
-                  data-whatever="<%= decks[i]._id%>">Add Card</button>
-                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editDeck">
-                  Rename
-                </button>
-                <form action="/deck/deleteDeck/<%= decks[i]._id%>?_method=DELETE" method="POST">
-                  <button class="dropdown-item" type="submit"> Delete</button>
-                </form>
-
-
-              </div>
-            </div>
-          </td>
-        </tr>
-        <% } %>
-
-    </tbody>
-  </table>
-  <%- include('./partials/modals'); %>
-
-  <%- include('./partials/footer'); %>
+<%- include('./partials/header'); %>
 
 
 
+  <% if (locals.messages.success) { %>
 
- 
+    <div class="alert alert-info">
+      <%= messages.success %>
+    </div>
+
+    <% } %>
+
+
+      <table class="table table-hover">
+        <tbody>
+          <% for(var i=0; i<decks.length; i++) {%>
+            <tr>
+              <th scope="row">
+                <%= i + 1%>
+              </th>
+              <td><a href=" /study/<%= decks[i]._id%>">
+                  <%= decks[i].title%>
+                </a></td>
+
+              <!-- <td>Otto</td> -->
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        
+                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard"
+                      data-whatever="<%= decks[i]._id%>">Add Card</button>
+                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editDeck"
+                      data-whatever="<%= decks[i]._id%>" data-previousval="<%= decks[i].title%>">
+                      Rename
+                    </button>
+                    <form action="/deck/deleteDeck/<%= decks[i]._id%>?_method=DELETE" method="POST">
+                      <button class="dropdown-item" type="submit"> Delete</button>
+                    </form>
+
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+      </table>
+          <%- include('./partials/modals'); %>
+
+      <script src="/card.js"></script>
+    
+        <%- include('./partials/footer'); %>

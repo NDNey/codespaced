@@ -10,18 +10,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  },
-  getCards: async (req, res) => {
-    try {
-      console.log('hello',req.params.id)
-
-      const cards = await Card.find({deckId:req.params.id})
-      res.render("study.ejs", { cards: cards, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  createDeck: async (req, res) => {
+  },createDeck: async (req, res) => {
     try {
       //upload images maybe.
       // Upload image to cloudinary
@@ -41,11 +30,26 @@ module.exports = {
       console.log(err);
     }
   },
+  editDeck: async (req, res) => {
+    console.log(req.body)
+    try {
+      await Deck.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: { title: req.body.NewDeckName },
+        }
+      );
+     
+      res.redirect(`/profile`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   deleteDeck: async (req, res) => {
     try {
       // Find post by id
-      let deck = await Deck.findById({ _id: req.params.id });
-      let cards = await Card.find({deckId:req.params.id})
+      // let deck = await Deck.findById({ _id: req.params.id });
+      // let cards = await Card.find({deckId:req.params.id})
       // Delete image from cloudinary
       // await cloudinary.uploader.destroy(post.cloudinaryId);
       // Delete post from db
