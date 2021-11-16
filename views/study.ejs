@@ -39,8 +39,8 @@
 
           <% if (cards[0].codeCard.length) { %>
             <p class="card-text">Take your time an answer the question</p>
-            <!-- <textarea class='codeEditorStudy' class="form-control"></textarea> -->
-            <%- include('./partials/codeEditor'); %>
+            <textarea id="studyEditor"></textarea>
+          
             <button>Submit Answer</button>
             <button id="answer">Reveal Answer</button>
             <% } else{ %>
@@ -76,7 +76,7 @@
     </div>
     
   </div>
-
+  <script src="/codeEditor.js"></script>
   <script src="/study.js"></script>
   <%- include('./partials/modals'); %>
   <%- include('./partials/footer'); %>

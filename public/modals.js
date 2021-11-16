@@ -17,6 +17,8 @@ $('#addCard').on('show.bs.modal', function (event) {
     return
   })
 
+  const codeCard = new Editor('codeCard')
+  codeCard.codeEditor.refresh()
   $('#editCard').on('show.bs.modal', function (event) {
     let button = $(event.relatedTarget)
     let action = `/study/edit/${button.data('id')}?_method=PUT`
@@ -32,8 +34,10 @@ $('#addCard').on('show.bs.modal', function (event) {
       modal.find('.modal-body .editedCard').removeClass("hidden")
       modal.find('.modal-body #back').val(back)
     }else{
-      editor.setValue(backCode)
+      codeCard.codeEditor.setValue(backCode)
+     
     }
    
     return
   })
+

@@ -74,7 +74,7 @@
           </div>
           <div class="form-group cardBack">
             <label for="message-text" class="col-form-label">Back</label>
-            <textarea name="back" class="back form-control" id="message-text"></textarea>
+            <textarea  name="back" class="back form-control" ></textarea>
           </div>
           <!-- codemirror -->
 
@@ -82,7 +82,7 @@
           <div class="form-group cardBack hidden">
             <input type="hidden" id="backCode" name="backCode" value="">
             <label for="message-text" class="col-form-label">Back</label>
-            <%- include('./codeEditor'); %>
+            <textarea class='codeEditor' class="form-control" id="createCard" ></textarea>
           </div>
 
         </div>
@@ -129,11 +129,10 @@
           <!-- codemirror -->
 
           <div class="form-group cardBackCode ">
-            <input type="hidden" id="backCode" name="backCode" value="">
             <label for="message-text" class="col-form-label">Back</label>
-            <%- include('./codeEditor'); %>
+            <textarea class="form-control" id="codeCard" ></textarea>
           </div>
-
+          
         </form>
       </div>
       <div class="modal-footer">
@@ -143,3 +142,4 @@
     </div>
   </div>
 </div>
+

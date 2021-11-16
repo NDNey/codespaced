@@ -1,11 +1,16 @@
-// Postcard
+ 
+let submitEditor = new Editor('createCard')
+submitEditor.codeEditor.refresh()
 
+
+// Postcard
 document.querySelector('#submitCard').addEventListener('click', () => {
+ 
     let front = document.querySelector('#cardFrond')
     let back = document.querySelector('.back')
     let alerta = document.querySelector('#alert')
     let deckId = document.querySelector('#submitCard').getAttribute('data-id')
-    let codeCard = editor.getValue()
+    let codeCard = submitEditor.codeEditor.getValue()
     let mirror = document.querySelector('.CodeMirror').outerHTML 
     if(!front.value.length){
       alert('please input card content')
@@ -23,10 +28,19 @@ document.querySelector('#submitCard').addEventListener('click', () => {
     }) 
     front.value = ''
     back.value = ''
-    editor.setValue('')
+    submitEditor.codeEditor.setValue('')
   alerta.classList.toggle("hidden")
   setTimeout(()=>{
     alerta.classList.toggle("hidden")
   },2000)
      
   });
+
+  document.querySelector('#openEditor').addEventListener('click',()=>{
+   
+    document.querySelectorAll('.cardBack').forEach(e => e.classList.toggle("hidden"))
+    document.querySelector('.back').value = ''
+  
+    // console.log(editor.getValue())
+    // editor.setValue()
+  })
