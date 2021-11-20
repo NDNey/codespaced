@@ -2,18 +2,21 @@
 
 
 <body>
-  <% if (!cards.length) { %>
+  <% if (!allCards.length) { %>
     <div class="alert alert-warning" role="alert">
      There are no cards in this deck yet!
     </div>
-  <% } else{ %>
+  <% } else if(!cards.length){ %>
+    <div class="alert alert-warning" role="alert">
+      You finished this session!
+     </div>
      
-   
+     <% } else{ %>
     <main>
       <div class="flip-card">
         <div class="flip-card-inner">
           <!-- front of the card -->
-          <div class="flip-card-front">
+          <div class="flip-card-front d-flex flex-column">
             <div class="card-header" id="cardHeader">
               <h3>Question</h3>
               <div class="dropdown">
@@ -25,32 +28,40 @@
                     Edit Card
                   </button>
                   <form id="deleteCard" action="/deck/deleteCard/<%= cards[index]._id%>?_method=DELETE" method="POST">
-                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#delete"> Delete</button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#delete">Delete</button>
                 
                   </form>
                 </div>
               </div>
             </div>
-            <div class="card-body">
-            
-
+          
+          
               <% if (cards[index].codeCard.length) { %>
+              <div class="card-body text-center">
+               <div>
                 <h5 class="card-title">
                   <%= cards[index].front%>
                 </h5>
                 <p class="card-text">Take your time an answer the question</p>
                 <textarea id="studyEditor"></textarea>
-                <button id="submitAnswer" data-backcode="<%= cards[index].codeCard%>"   class="btn btn-secondary">Submit Answer</button>
-                <!-- <button class="btn btn-secondary" id="answer">Reveal Answer</button> -->
+               </div>
+              </div>
+                <button  class="btn btn-secondary align-self" id="submitAnswer" data-backcode="<%= cards[index].codeCard%>"  >Submit Answer</button>
                 <% } else{ %>
-                  <h5 class="card-title">
-                    <%= cards[index].front%>
-                  </h5>
-                  <button class="btn btn-secondary" id="answer">Reveal Answer</button>
+                  <div class="card-body text-center">
+                  <div>
+                    <h5 class="card-title">
+                      <%= cards[index].front%>
+                    </h5>
+                  </div>
+                </div>
+                  <div class="align-self text-center">
+                    <button class="btn btn-secondary " id="answer">Reveal Answer</button>
+                  </div>
                   <% } %>
-             </div>
+        
           </div>
-          <div class="flip-card-back text-center ">
+          <div class="flip-card-back text-center d-flex flex-column">
             <div class="card-header">
               <h3><%= cards[index].front%></h3>
             </div>
@@ -64,28 +75,30 @@
                   <p class="card-title"><%= cards[index].back%></p>
        
               <% } %>
-    
-        
-                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Repeat</a>
-                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Hard</a>
-                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Good</a>
-                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Easy</a >
+            
+       
 
-           
-                
-
-               
+            </div>
+            <div class="align-self"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
+              <button   class="btn btn-primary next" ><small>< 1 min</small><br>Repeat</button>
+              <button   class="btn btn-primary next" ><small>< <%= cards[index].hard%></small><br>Hard</button>
+              <button   class="btn btn-primary next" ><small>< <%= cards[index].good%></small><br>Good</button>
+              <button   class="btn btn-primary next" ><small>< <%= cards[index].easy%></small><br>Easy</button >
             </div>
           </div>
           </div>  
         </div>
       </div>
     </main>
+
+
   <% } %>
   
   
   <script src="/codeEditor.js"></script>
   <%- include('./partials/modals'); %>
   <script src="/study.js"></script>
+  
+
   <%- include('./partials/footer'); %>
 </body>

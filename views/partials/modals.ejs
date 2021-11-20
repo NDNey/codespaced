@@ -12,53 +12,59 @@
         <form id="newDeckName" action="" method="post">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">New Name</label>
-            <input type="text" name="NewDeckName" class="form-control" id="title">
+            <input type="text" name="NewDeckName" class="form-control" id="title"/>
           </div>
-
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="newDeckName" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" form="newDeckName" class="btn btn-primary">
+          Save changes
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-
 <!-- Add deck Modal -->
 
-<div class="modal fade" id="addDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade" id="addDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New Deck</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form action="/deck/newDeck" id="newDeck" method="POST">
-          <input class="form-control" type="text" name="title" placeholder="New Deck">
+          <input class="form-control" type="text" name="title" placeholder="New Deck"/>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="newDeck" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" form="newDeck" class="btn btn-primary">
+          Save changes
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-
 <!-- add card modal -->
 
-<div class="modal fade" id="addCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New Card</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -70,33 +76,31 @@
         <div id="newCard">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Front</label>
-            <input type="text" name="front" class="form-control" id="cardFrond">
+            <input type="text" name="front" class="form-control" id="cardFrond" />
           </div>
           <div class="form-group cardBack">
             <label for="message-text" class="col-form-label">Back</label>
-            <textarea  name="back" class="back form-control" ></textarea>
+            <textarea name="back" class="back form-control"></textarea>
           </div>
           <!-- codemirror -->
 
-
           <div class="form-group cardBack hidden">
-            <input type="hidden" id="backCode" name="backCode" value="">
+            <input type="hidden" id="backCode" name="backCode" value="" />
             <label for="message-text" class="col-form-label">Back</label>
-            <textarea class='codeEditor' class="form-control" id="createCard" ></textarea>
+            <textarea class="codeEditor" class="form-control" id="createCard"></textarea>
           </div>
-
         </div>
-
       </div>
       <div class="modal-footer">
-        <button type="button" id="openEditor" class="btn btn-secondary"><i class="far fa-file-code  "></i></button>
-        <button type="submit" id="submitCard" class="btn btn-primary">Save changes</button>
-
+        <button type="button" id="openEditor" class="btn btn-secondary">
+          <i class="far fa-file-code"></i>
+        </button>
+        <button type="submit" id="submitCard" class="btn btn-primary">
+          Save changes
+        </button>
       </div>
-
     </div>
   </div>
-
 </div>
 
 <!-- edit card modal -->
@@ -106,18 +110,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Card</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div >
-       
+        <div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Front</label>
-            <input type="text" id="front" name="front" class="form-control" id="recipient-name">
+            <input type="text" id="front" name="front" class="form-control" id="recipient-name" />
           </div>
-          <div class="form-group cardBackText hidden ">
+          <div class="form-group cardBackText hidden">
             <label for="message-text" class="col-form-label">Back</label>
             <textarea name="back" id="back" class="back form-control"></textarea>
           </div>
@@ -125,16 +128,17 @@
 
           <div class="form-group cardBackCode hidden">
             <label for="message-text" class="col-form-label">Back</label>
-            <textarea class="form-control" id="codeCard" ></textarea>
+            <textarea class="form-control" id="codeCard"></textarea>
           </div>
-          
         </div>
       </div>
       <div class="modal-footer lolo">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
-          <button type="submit" id="editedCard"  class="btn btn-primary">Save changes</button>
-
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" id="editedCard" class="btn btn-primary">
+          Save changes
+        </button>
       </div>
     </div>
   </div>
@@ -153,12 +157,16 @@
       </div>
       <div class="modal-body">
         <div class="alert alert-danger" role="alert">
-        Are you sure you wanto delete this Item? 
+          Are you sure you wanto delete this Item?
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button id="confirm" type="submit" form="deleteCard" class="btn btn-primary">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <button id="confirm" type="submit" form="deleteCard" class="btn btn-primary">
+          Delete
+        </button>
       </div>
     </div>
   </div>
@@ -177,17 +185,17 @@
       </div>
       <div class="modal-body">
         <div class="alert alert-danger" role="alert">
-        Are you sure you wanto delete this Item? 
+          Are you sure you wanto delete this Item?
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <form id="deleteDeck"   method="POST">
-          <button   type="submit"  class="btn btn-primary">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <form id="deleteDeck" method="POST">
+          <button type="submit" class="btn btn-primary">Delete</button>
         </form>
-     
       </div>
     </div>
   </div>
 </div>
-

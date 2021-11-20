@@ -18,17 +18,14 @@ if (document.querySelector('#studyEditor')) {
     }
     flip()
   })
-}else{
-  
-document.querySelector('#answer').addEventListener('click', flip)
+} else {
+
+  document.querySelector('#answer').addEventListener('click', flip)
 }
 
 const codeCard = new Editor('codeCard')
 codeCard.codeEditor.refresh()
 console.log(codeCard)
-
-
-
 
 // edit card
 
@@ -39,8 +36,6 @@ document.querySelector('#editedCard').addEventListener('click', () => {
   let back = document.querySelector('#back')
   let id = editButton.getAttribute('data-id')
   let codeCardEdited = codeCard.codeEditor.getValue()
-
-
   let mirror = document.querySelector('#codeCard').nextElementSibling.outerHTML
   let deckId = editButton.getAttribute('data-deckid')
 
@@ -64,30 +59,44 @@ document.querySelector('#editedCard').addEventListener('click', () => {
   front.value = ''
   back.value = ''
   codeCard.codeEditor.setValue('')
-  // window.location.reload(true)
-
-  // alerta.classList.toggle("hidden")
-  // setTimeout(()=>{
-  //   alerta.classList.toggle("hidden")
-  // },2000)
-
+  window.location.reload(true)
 });
+
+// study card
+document.querySelectorAll('.next').forEach(e => e.addEventListener('click', (e) => {
+
+
+  const text = e.target.innerText.toLowerCase().slice(e.target.innerText.indexOf('\n') + 1)
+  console.log(text)
+  let res = e.target.parentNode.getAttribute('data-responses')
+  let id = e.target.parentNode.getAttribute('data-id')
+  let deckId = e.target.parentNode.getAttribute('data-deckid')
+  let date = e.target.parentNode.getAttribute('data-date')
+  let responses = res.length > 1 ? res.split(',') : []
+  responses.push(text)
+
+  fetch(`/study/schedule/${id}`, {
+    method: 'put',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      responses: responses,
+      deckId: deckId,
+      date: date,
+
+
+    })
+  })
+  window.location.reload(true)
+
+}))
 
 
 //  flip card 
 function flip() {
   document.querySelector('.flip-card-inner').style.transform = "rotateY(180deg)"
-  let answer = document.querySelector('#cardAnswer')
-  answer.innerHTML = answer.dataset.mirror
+  if (document.querySelector('#cardAnswer')) {
+    let answer = document.querySelector('#cardAnswer')
+    answer.innerHTML = answer.dataset.mirror
+  }
+
 }
-
-
-document.querySelectorAll('.next').forEach(e=> e.addEventListener('click',(e)=>{
-let index = 0
-  let max= e.target.getAttribute('data-decklength')
- 
-
-  console.log(max)
-
-
-}))
