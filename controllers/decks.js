@@ -12,15 +12,8 @@ module.exports = {
     }
   },createDeck: async (req, res) => {
     try {
-      //upload images maybe.
-      // Upload image to cloudinary
-      // const result = await cloudinary.uploader.upload(req.file.path);
-
       await Deck.create({
         title: req.body.title,
-        // image: result.secure_url,
-        // cloudinaryId: result.public_id,
-        // caption: req.body.caption
         user: req.user.id,
         cards:[]
       });
@@ -53,6 +46,7 @@ module.exports = {
       // Delete image from cloudinary
       // await cloudinary.uploader.destroy(post.cloudinaryId);
       // Delete post from db
+      console.log(req.params.id)
       await Deck.remove({ _id: req.params.id });
       await Card.remove({ deckId:req.params.id});
       console.log("Deleted Deck");

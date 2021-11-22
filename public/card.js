@@ -16,6 +16,8 @@ document.querySelector('#submitCard').addEventListener('click', () => {
       alert('please input card content')
       return
     }
+
+    
     fetch(`/deck/newCard/${deckId}`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },

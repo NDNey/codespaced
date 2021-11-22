@@ -1,133 +1,91 @@
 <%- include('./partials/header'); %>
 
 
+<body>
+  <% if (!cards.length) { %>
+    <div class="alert alert-warning" role="alert">
+     There are no cards in this deck yet!
+    </div>
+  <% } else{ %>
+     
+   
+    <main>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <!-- front of the card -->
+          <div class="flip-card-front">
+            <div class="card-header" id="cardHeader">
+              <h3>Question</h3>
+              <div class="dropdown">
+                <i class="fas fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editCard"
+                    data-id="<%= cards[index]._id%>" data-front="<%= cards[index].front%>" data-back="<%= cards[index].back%>"  data-backcode="<%= cards[index].codeCard%>"
+                    data-deckid="<%= cards[index].deckId%>">
+                    Edit Card
+                  </button>
+                  <form id="deleteCard" action="/deck/deleteCard/<%= cards[index]._id%>?_method=DELETE" method="POST">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#delete"> Delete</button>
+                
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+            
 
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <div class="card-header">
-          <h6>Question</h6>
+              <% if (cards[index].codeCard.length) { %>
+                <h5 class="card-title">
+                  <%= cards[index].front%>
+                </h5>
+                <p class="card-text">Take your time an answer the question</p>
+                <textarea id="studyEditor"></textarea>
+                <button id="submitAnswer" data-backcode="<%= cards[index].codeCard%>"   class="btn btn-secondary">Submit Answer</button>
+                <!-- <button class="btn btn-secondary" id="answer">Reveal Answer</button> -->
+                <% } else{ %>
+                  <h5 class="card-title">
+                    <%= cards[index].front%>
+                  </h5>
+                  <button class="btn btn-secondary" id="answer">Reveal Answer</button>
+                  <% } %>
+             </div>
+          </div>
+          <div class="flip-card-back text-center ">
+            <div class="card-header">
+              <h3><%= cards[index].front%></h3>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Answer</h5>
+    
+              <% if (cards[index].codeCard.length) { %>
+                <div id="answerMatch"></div>
+                <div id='cardAnswer' class="text-left" data-mirror="<%= cards[index].mirror%>"> </div>
+              <% } else{ %>
+                  <p class="card-title"><%= cards[index].back%></p>
+       
+              <% } %>
+    
+        
+                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Repeat</a>
+                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Hard</a>
+                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Good</a>
+                <a href="/study/<%= cards[index].deckId%>"  class="btn btn-primary next" >Easy</a >
 
+           
+                
 
-          <div class="dropdown">
-            <i class="fas fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-            </i>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-
-              <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editCard"
-                data-id="<%= cards[0]._id%>" data-front="<%= cards[0].front%>" data-back="<%= cards[0].back%>"  data-backcode="<%= cards[0].codeCard%>"
-                data-deckid="<%= cards[0].deckId%>">
-                Edit Card
-              </button>
-
-              <form action="/deck/deleteCard/<%= cards[0]._id%>?_method=DELETE" method="POST">
-                <button class="dropdown-item" type="submit"> Delete</button>
-              </form>
+               
             </div>
           </div>
-
-        </div>
-
-
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= cards[0].front%>
-          </h5>
-
-
-          <% if (cards[0].codeCard.length) { %>
-            <p class="card-text">Take your time an answer the question</p>
-            <textarea id="studyEditor"></textarea>
-          
-            <button>Submit Answer</button>
-            <button id="answer">Reveal Answer</button>
-            <% } else{ %>
-              <h5 class="card-title">
-                <%= cards[0].front%>
-              </h5>
-              <button id="answer">Reveal Answer</button>
-              <% } %>
-
-          
-         
-              
+          </div>  
         </div>
       </div>
-      <div class="flip-card-back">
-        <div class="card-header">
-          <%= cards[0].front%>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Answer</h5>
-          <!-- <p class="card-text"><%= cards[0].back%></p>  -->
-
-          <div id='cardAnswer' data-mirror="<%= cards[0].mirror%>"> </div>
-          <button>Again</button>
-          <button>Hard</button>
-          <button>Good</button>
-          <button>Easy</button>
-        </div>
-      
-      </div>
-      </div>
-    
-    </div>
-    
-  </div>
-  <script src="/codeEditor.js"></script>
-  <script src="/study.js"></script>
-  <%- include('./partials/modals'); %>
-  <%- include('./partials/footer'); %>
-
-      <!-- 
-    <style>
-.flip-card {
-  background-color: transparent;
-  width: 50vw;
-  height: 60vh;
-  perspective: 1000px;
-  margin: 90px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  /* text-align: center; */
-  padding: 0;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-/* 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  /* background-color: #bbb; */
+    </main>
+  <% } %>
   
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
-}
-    </style>
-
-    <script>
-    document.querySelector('#answer').addEventListener('click', ()=>{
-      document.querySelector('.flip-card-inner').style.transform = "rotateY(180deg)"
-      let content = document.querySelector('#mirror')
-      document.querySelector('#cardAnswer').innerHTML = content.value
-    })
-    </script> -->
+  
+  <script src="/codeEditor.js"></script>
+  <%- include('./partials/modals'); %>
+  <script src="/study.js"></script>
+  <%- include('./partials/footer'); %>
+</body>

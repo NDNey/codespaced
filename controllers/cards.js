@@ -5,8 +5,8 @@ module.exports = {
   getCards: async (req, res) => {
     try {
       const cards = await Card.find({deckId:req.params.id})
-      console.log(req.params)
-      res.render("study.ejs", { cards: cards, user: req.user });
+      let index = Math.floor(Math.random()*cards.length)
+      res.render("study.ejs", { cards: cards, user: req.user,index:index });
     } catch (err) {
       console.log(err);
     }
@@ -41,11 +41,13 @@ module.exports = {
  
     try {
       await Card.findOneAndUpdate(
-        { _id: req.params.id },
+        { _id: req.body.id },
         {
           $set: { 
             front: req.body.front ,
-            back: req.body.back 
+            back: req.body.back,
+            codeCard: req.body.codeCard,
+            mirror: req.body.mirror
           },
         }
       );

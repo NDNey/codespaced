@@ -26,7 +26,7 @@
 </div>
 
 
-<!-- Adddeck Modal -->
+<!-- Add deck Modal -->
 
 <div class="modal fade" id="addDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -111,33 +111,81 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="editedCard" action="" method="post">
-          <input type="hidden" name="deckId" id="deckId">
+        <div >
+       
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Front</label>
             <input type="text" id="front" name="front" class="form-control" id="recipient-name">
           </div>
-          <!-- <div class="form-group">
-            <label for="message-text" class="col-form-label">Back</label>
-            <textarea type='text'  name="back" class="form-control" id="message-text"></textarea>
-          </div> -->
-
           <div class="form-group cardBackText hidden ">
             <label for="message-text" class="col-form-label">Back</label>
             <textarea name="back" id="back" class="back form-control"></textarea>
           </div>
           <!-- codemirror -->
 
-          <div class="form-group cardBackCode ">
+          <div class="form-group cardBackCode hidden">
             <label for="message-text" class="col-form-label">Back</label>
             <textarea class="form-control" id="codeCard" ></textarea>
           </div>
           
-        </form>
+        </div>
+      </div>
+      <div class="modal-footer lolo">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+          <button type="submit" id="editedCard"  class="btn btn-primary">Save changes</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- alert modal delete card -->
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+        Are you sure you wanto delete this Item? 
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="editedCard" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="confirm" type="submit" form="deleteCard" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- alert modal delete deck -->
+
+<div class="modal fade" id="AlertdeleteDeck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+        Are you sure you wanto delete this Item? 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <form id="deleteDeck"   method="POST">
+          <button   type="submit"  class="btn btn-primary">Delete</button>
+        </form>
+     
       </div>
     </div>
   </div>
