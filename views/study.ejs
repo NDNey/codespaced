@@ -10,7 +10,6 @@
     <div class="alert alert-warning" role="alert">
       You finished this session!
      </div>
-     
      <% } else{ %>
     <main>
       <div class="flip-card">
@@ -34,8 +33,6 @@
                 </div>
               </div>
             </div>
-          
-          
               <% if (cards[index].codeCard.length) { %>
               <div class="card-body text-center">
                <div>
@@ -59,7 +56,6 @@
                     <button class="btn btn-secondary " id="answer">Reveal Answer</button>
                   </div>
                   <% } %>
-        
           </div>
           <div class="flip-card-back text-center d-flex flex-column">
             <div class="card-header">
@@ -67,17 +63,12 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Answer</h5>
-    
               <% if (cards[index].codeCard.length) { %>
                 <div id="answerMatch"></div>
                 <div id='cardAnswer' class="text-left" data-mirror="<%= cards[index].mirror%>"> </div>
               <% } else{ %>
                   <p class="card-title"><%= cards[index].back%></p>
-       
               <% } %>
-            
-       
-
             </div>
             <div class="align-self"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
               <button   class="btn btn-primary next" ><small>< 1 min</small><br>Repeat</button>
@@ -90,15 +81,9 @@
         </div>
       </div>
     </main>
-
-
   <% } %>
-  
-  
   <script src="/client/codeEditor.js"></script>
   <%- include('./partials/modals'); %>
   <script src="/client/study.js"></script>
-  
-
   <%- include('./partials/footer'); %>
 </body>
