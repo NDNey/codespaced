@@ -1,14 +1,8 @@
-const cloudinary = require("../middleware/cloudinary");
 const Card = require("../models/Card");
 const schedule = require("./schedule")
 
 module.exports = {
   getCards: async (req, res) => {
-
-// let d = new Date()
-//     console.log(schedule.execute(['good','good','good'],d))
-
-
     try {
       const allCards = await Card.find({deckId:req.params.id})
       let today = new Date()
@@ -21,22 +15,11 @@ module.exports = {
   },
   createCard: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      // const result = await cloudinary.uploader.upload(req.file.path);
-
       await Card.create({
         front: req.body.front,
         back: req.body.back,
         codeCard: req.body.codeCard,
         mirror: req.body.mirror,
-      
-       
-   
-     
-        // image: result.secure_url,
-        // cloudinaryId: result.public_id,
-        // caption: req.body.caption,
-        // likes: 0,
         deckId:req.params.id,
         user: req.user.id,
      
