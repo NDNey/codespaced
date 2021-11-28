@@ -34,16 +34,19 @@
               </div>
             </div>
               <% if (cards[index].codeCard.length) { %>
-              <div class="card-body text-center">
+              <div class="card-body ">
                <div>
-                <h5 class="card-title">
+                <h5 class="card-title text-center">
                   <%= cards[index].front%>
                 </h5>
-                <p class="card-text">Take your time an answer the question</p>
+                <p class="card-text text-center">Take your time an answer the question</p>
                 <textarea id="studyEditor"></textarea>
                </div>
               </div>
+              <div class="align-self text-center botonera">
                 <button  class="btn btn-secondary align-self" id="submitAnswer" data-backcode="<%= cards[index].codeCard%>"  >Submit Answer</button>
+              </div>
+              
                 <% } else{ %>
                   <div class="card-body text-center">
                   <div>
@@ -52,7 +55,7 @@
                     </h5>
                   </div>
                 </div>
-                  <div class="align-self text-center">
+                  <div class="align-self text-center botonera">
                     <button class="btn btn-secondary " id="answer">Reveal Answer</button>
                   </div>
                   <% } %>
@@ -70,11 +73,11 @@
                   <p class="card-title"><%= cards[index].back%></p>
               <% } %>
             </div>
-            <div class="align-self"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
-              <button   class="btn btn-primary next" ><small>< 1 min</small><br>Repeat</button>
-              <button   class="btn btn-primary next" ><small>< <%= cards[index].hard%></small><br>Hard</button>
-              <button   class="btn btn-primary next" ><small>< <%= cards[index].good%></small><br>Good</button>
-              <button   class="btn btn-primary next" ><small>< <%= cards[index].easy%></small><br>Easy</button >
+            <div class="align-self botonera"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
+              <button value="repeat"   class="btn btn-primary next" ><small>< 1 min</small><br>Repeat</button>
+              <button value="hard"   class="btn btn-primary next" ><small>< <%= cards[index].hard%></small><br>Hard</button>
+              <button value="good"  class="btn btn-primary next" ><small>< <%= cards[index].good%></small><br>Good</button>
+              <button value="easy"   class="btn btn-primary next" ><small>< <%= cards[index].easy%></small><br>Easy</button >
             </div>
           </div>
           </div>  

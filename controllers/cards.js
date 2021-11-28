@@ -68,14 +68,8 @@ module.exports = {
       console.log(err);
     }
   },studyCard: async (req, res) => {
-    console.log('hello',req.params.id)
-    console.log('hello',req.body.deckId)
-
-    let updates = await schedule.execute(req.body.responses, req.body.date)
-    console.log(updates)
-    console.log( updates.studyDate)
     
- 
+    let updates = await schedule.execute(req.body.responses, req.body.date)
     try {
       await Card.findOneAndUpdate(
         { _id: req.params.id },
@@ -95,13 +89,6 @@ module.exports = {
   },
    deleteCard: async (req, res) => {
     try {
-      // Find post by id
-      // let deck = await Deck.findById({ _id: req.params.id });
-      // let cards = await Card.find({deckId:req.params.id})
-      // Delete image from cloudinary
-      // await cloudinary.uploader.destroy(post.cloudinaryId);
-      // Delete post from db
-      // await Deck.remove({ _id: req.params.id });
       await Card.remove({  _id:req.params.id});
       console.log("Deleted Deck");
       res.redirect("/profile");

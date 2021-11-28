@@ -36,7 +36,7 @@ main{
 .flip-card {
   background-color: transparent;
   width: 50vw;
-  height: 60vh;
+  height: 70vh;
   perspective: 1000px;
  
 }
@@ -90,7 +90,9 @@ main{
   margin: 40px;
 }
 
-
+.botonera{
+  padding: 20px 0;
+}
 
 /* hide elements */
 .hidden{

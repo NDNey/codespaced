@@ -64,10 +64,7 @@ document.querySelector('#editedCard').addEventListener('click', () => {
 
 // study card
 document.querySelectorAll('.next').forEach(e => e.addEventListener('click', (e) => {
-
-
-  const text = e.target.innerText.toLowerCase().slice(e.target.innerText.indexOf('\n') + 1)
-  console.log(text)
+  const text = e.target.value 
   let res = e.target.parentNode.getAttribute('data-responses')
   let id = e.target.parentNode.getAttribute('data-id')
   let deckId = e.target.parentNode.getAttribute('data-deckid')
