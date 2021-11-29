@@ -64,13 +64,15 @@ document.querySelector('#editedCard').addEventListener('click', () => {
 
 // study card
 document.querySelectorAll('.next').forEach(e => e.addEventListener('click', (e) => {
-  const text = e.target.value 
-  let res = e.target.parentNode.getAttribute('data-responses')
-  let id = e.target.parentNode.getAttribute('data-id')
-  let deckId = e.target.parentNode.getAttribute('data-deckid')
-  let date = e.target.parentNode.getAttribute('data-date')
+  const text = e.currentTarget.value 
+  const data = document.querySelector('#buttons')
+  let res = data.getAttribute('data-responses')
+  let id = data.getAttribute('data-id')
+  let deckId = data.getAttribute('data-deckid')
+  let date = data.getAttribute('data-date')
   let responses = res.length > 1 ? res.split(',') : []
   responses.push(text)
+  console.log(text)
 
   fetch(`/study/schedule/${id}`, {
     method: 'put',
@@ -79,14 +81,11 @@ document.querySelectorAll('.next').forEach(e => e.addEventListener('click', (e) 
       responses: responses,
       deckId: deckId,
       date: date,
-
-
     })
   })
   window.location.reload(true)
 
 }))
-
 
 //  flip card 
 function flip() {

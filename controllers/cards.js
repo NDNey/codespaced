@@ -6,7 +6,7 @@ module.exports = {
     try {
       const allCards = await Card.find({deckId:req.params.id})
       let today = new Date()
-      const cards = allCards.filter(e => e.studyDate.toLocaleDateString() === today.toLocaleDateString() )
+      const cards = allCards.filter(e => e.studyDate.getDate() <= today.getDate()  &&  e.studyDate.getMonth() === today.getMonth()  )
       let index = Math.floor(Math.random()*cards.length)
       res.render("study.ejs", { cards: cards,allCards:allCards, user: req.user,index:index });
     } catch (err) {

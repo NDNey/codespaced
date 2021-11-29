@@ -4,11 +4,11 @@
 <body>
   <% if (!allCards.length) { %>
     <div class="alert alert-warning" role="alert">
-     There are no cards in this deck yet!
+     <p>There are no cards in this deck yet!</p>
     </div>
   <% } else if(!cards.length){ %>
     <div class="alert alert-warning" role="alert">
-      You finished this session!
+      <p>You finished this session!</p>
      </div>
      <% } else{ %>
     <main>
@@ -73,7 +73,7 @@
                   <p class="card-title"><%= cards[index].back%></p>
               <% } %>
             </div>
-            <div class="align-self botonera"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
+            <div id="buttons" class="align-self botonera"   data-deckid="<%= cards[index].deckId%>" data-id="<%= cards[index]._id%>" data-responses="<%= cards[index].responses%>" data-date="<%= cards[index].studyDate%>" >
               <button value="repeat"   class="btn btn-primary next" ><small>< 1 min</small><br>Repeat</button>
               <button value="hard"   class="btn btn-primary next" ><small>< <%= cards[index].hard%></small><br>Hard</button>
               <button value="good"  class="btn btn-primary next" ><small>< <%= cards[index].good%></small><br>Good</button>

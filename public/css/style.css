@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 * {
   box-sizing: border-box;
+  font-family: 'EB Garamond', serif;
+}
+p{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 1.5rem;
 }
 
 body{
   display: flex;
   flex-direction: column;
   height: 100vh;
-  
- 
-
 }
 footer{
   position:fixed;
@@ -38,6 +41,8 @@ main{
   width: 50vw;
   height: 70vh;
   perspective: 1000px;
+  
+  
  
 }
 
@@ -81,10 +86,7 @@ main{
   align-items: center;
 }
 
-#cardHeader .dropdown{
  
-}
-
 /* deck container */
 #deckContainer{
   margin: 40px;
@@ -93,8 +95,16 @@ main{
 .botonera{
   padding: 20px 0;
 }
-
+ 
+ 
 /* hide elements */
 .hidden{
   display: none;
+}
+
+
+@media only screen and (max-width: 780px) {
+  .flip-card{
+    width: 100%;
+  }
 }
