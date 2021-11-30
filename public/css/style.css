@@ -13,14 +13,19 @@ body{
   flex-direction: column;
   height: 100vh;
 }
+.navbar-collapse{
+  justify-content: space-between;
+  padding: 0 30px 0 0;
+  font-size: 1.2rem;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+}
 footer{
-  position:fixed;
-  left:0px;
   bottom:0px;
   padding: 5px 0;
   width:100%;
   background:rgb(52,58,64);
-   
   text-align: center;
 }
 footer *{
@@ -29,9 +34,10 @@ footer *{
 
 main{
   display: flex;
-  height: 90vh;   /* /fix this/ */
+  height: 100vh; 
   justify-content: center;
   align-items: center;
+ 
 }
 
   /* ///////////////cardFlip//////////////////// */
@@ -41,25 +47,17 @@ main{
   width: 50vw;
   height: 70vh;
   perspective: 1000px;
-  
-  
- 
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  /* text-align: center; */
   padding: 0;
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-/* 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
 
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -67,11 +65,6 @@ main{
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-}
-
-.flip-card-front {
-  /* background-color: #bbb; */
-  
 }
 
 .flip-card-back {
@@ -86,20 +79,33 @@ main{
   align-items: center;
 }
 
- 
-/* deck container */
-#deckContainer{
-  margin: 40px;
-}
-
 .botonera{
   padding: 20px 0;
 }
  
  
+/* deck container */
+#deckContainer{
+  margin: 40px;
+  height: 100vh;
+}
+
+
+ 
 /* hide elements */
 .hidden{
   display: none;
+}
+
+.CodeMirror{
+  max-height: 30vh !important;
+  font-size: 1.5rem;
+}
+
+/* table content */
+
+table{
+  font-size: 1.5rem;
 }
 
 

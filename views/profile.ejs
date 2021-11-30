@@ -3,54 +3,41 @@
 <body>
 
 <% if (locals.messages.success) { %>
-
   <div class="alert alert-info">
-   
-   <h6>Hello <%= user.userName %> <%= messages.success %></h6> 
+    <h6>Hello <%= user.userName %> <%= messages.success %></h6> 
   </div>
-
-  <% } %>
+<% } %>
 
 <section id="deckContainer">
-<h3><%= user.userName %>'s Decks</h3>
-<table class="table table-hover">
-  <tbody>
-    <% for(var i=0; i<decks.length; i++) {%>
-      <tr>
-        <th scope="row">
-          <%= i + 1%>
-        </th>
-        <td>
-          <a href=" /study/<%= decks[i]._id%>"><%= decks[i].title%></a>
-        </td>
-        <td>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Options
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-  
-              <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard"
-                data-whatever="<%= decks[i]._id%>">Add Card</button>
-              <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editDeck"
-                data-whatever="<%= decks[i]._id%>" data-previousval="<%= decks[i].title%>">
-                Rename
+  <h3><%= user.userName %>'s Decks</h3>
+  <table class="table table-hover">
+    <tbody>
+      <% for(var i=0; i<decks.length; i++) {%>
+        <tr>
+          <th scope="row">
+            <%= i + 1%>
+          </th>
+          <td>
+            <a href=" /study/<%= decks[i]._id%>"><%= decks[i].title%></a>
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Options
               </button>
-             
-              <button class="dropdown-item" type="button" data-toggle="modal" data-target="#AlertdeleteDeck" data-id="<%= decks[i]._id%>"> Delete</button>
-
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <a type="button" class="dropdown-item" href=" /study/<%= decks[i]._id%>">Study</a>
+                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard" data-whatever="<%= decks[i]._id%>">Add card</button>
+                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editDeck" data-whatever="<%= decks[i]._id%>" data-previousval="<%= decks[i].title%>">Rename</button>
+                <button class="dropdown-item" type="button" data-toggle="modal" data-target="#AlertdeleteDeck" data-id="<%= decks[i]._id%>"> Delete</button>
+              </div>
             </div>
-          </div>
-        </td>
-      
-      </tr>
-
-
-      <% } %>
-
-  </tbody>
-</table>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
 </section>
     <!-- alert modal delete deck -->
     <%- include('./partials/modals'); %>

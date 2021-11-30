@@ -17,7 +17,6 @@ module.exports = {
         user: req.user.id,
         cards:[]
       });
-      console.log("Deck has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
@@ -32,7 +31,6 @@ module.exports = {
           $set: { title: req.body.NewDeckName },
         }
       );
-     
       res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
@@ -40,16 +38,8 @@ module.exports = {
   },
   deleteDeck: async (req, res) => {
     try {
-      // Find post by id
-      // let deck = await Deck.findById({ _id: req.params.id });
-      // let cards = await Card.find({deckId:req.params.id})
-      // Delete image from cloudinary
-      // await cloudinary.uploader.destroy(post.cloudinaryId);
-      // Delete post from db
-      console.log(req.params.id)
-      await Deck.remove({ _id: req.params.id });
-      await Card.remove({ deckId:req.params.id});
-      console.log("Deleted Deck");
+      await Deck.deleteOne({ _id: req.params.id });
+      await Card.deleteOne({ deckId:req.params.id});
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");

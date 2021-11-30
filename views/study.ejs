@@ -1,17 +1,17 @@
 <%- include('./partials/header'); %>
 
-
 <body>
-  <% if (!allCards.length) { %>
-    <div class="alert alert-warning" role="alert">
-     <p>There are no cards in this deck yet!</p>
-    </div>
-  <% } else if(!cards.length){ %>
-    <div class="alert alert-warning" role="alert">
-      <p>You finished this session!</p>
-     </div>
-     <% } else{ %>
-    <main>
+
+  <main>
+    <% if (!allCards.length) { %>
+      <div class="alert alert-warning" role="alert">
+        <p>There are no cards in this deck yet!</p>
+      </div>
+    <% } else if(!cards.length){ %>
+      <div class="alert alert-warning" role="alert">
+        <p>You finished this session!</p>
+      </div>
+    <% } else{ %>
       <div class="flip-card">
         <div class="flip-card-inner">
           <!-- front of the card -->
@@ -36,10 +36,10 @@
               <% if (cards[index].codeCard.length) { %>
               <div class="card-body ">
                <div>
-                <h5 class="card-title text-center">
+                <p class="card-title text-center">
                   <%= cards[index].front%>
-                </h5>
-                <p class="card-text text-center">Take your time an answer the question</p>
+                </p>
+                <h5 class="card-text text-center">Take your time an answer the question</h5>
                 <textarea id="studyEditor"></textarea>
                </div>
               </div>
@@ -83,10 +83,11 @@
           </div>  
         </div>
       </div>
-    </main>
-  <% } %>
+    <% } %>
+ </main>
   <script src="/client/codeEditor.js"></script>
   <%- include('./partials/modals'); %>
   <script src="/client/study.js"></script>
   <%- include('./partials/footer'); %>
+  
 </body>

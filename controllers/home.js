@@ -3,6 +3,6 @@ module.exports = {
     res.render("index.ejs");
   },
   getAbout: (req, res) => {
-    res.render("about.ejs");
+    res.render("about.ejs", {user: req.user });
   },
 };

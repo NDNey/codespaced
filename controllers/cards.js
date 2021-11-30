@@ -72,8 +72,7 @@ module.exports = {
   },
    deleteCard: async (req, res) => {
     try {
-      await Card.remove({  _id:req.params.id});
-      console.log("Deleted Deck");
+      await Card.deleteOne({  _id:req.params.id});
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");

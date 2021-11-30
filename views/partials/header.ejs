@@ -16,11 +16,12 @@
     <script src="/codemirror/codemirror-5.63.3/mode/xml/xml.js"></script>
     <script src="/codemirror/codemirror-5.63.3/mode/javascript/javascript.js"></script>
     <script src="/codemirror/codemirror-5.63.3/addon/edit/closebrackets.js"></script>
-    <link rel="stylesheet" href="/codemirror/codemirror-5.63.3/theme/dracula.css" />
+    <!-- <link rel="stylesheet" href="/codemirror/codemirror-5.63.3/theme/dracula.css" /> -->
+    <link rel="stylesheet" href="/codemirror/codemirror-5.63.3/theme/material.css" /> 
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/profile"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM80.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462"></path></g></g></svg>Code Spaced  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM118.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462,-102.125h15.05538l-24.1875,102.125z"></path></g></g></svg></a>
+    <a class="navbar-brand" href="/profile"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM80.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462"></path></g></g></svg>Code Spaced  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM118.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462,-102.125h15.05538l-24.1875,102.125z"></path></g></g></svg></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,16 +31,17 @@
           <a class="nav-link" href="/profile">Decks</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#addDeck">Add</a>
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#addDeck">Add Deck</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout"
+          data-toggle="tooltip" data-placement="bottom" title="Log Out"><i class="fas fa-sign-out-alt fa-lg"></i
+          ></a>
         </li>
       </ul>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item active">
-        <a class="nav-link" href="/logout"
-          ><i class="fas fa-sign-out-alt fa-lg"></i
-        ></a>
-      </li>
-    </ul>
+  
   </nav>
 </html>
