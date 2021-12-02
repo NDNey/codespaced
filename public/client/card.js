@@ -1,10 +1,8 @@
 const submitEditor = new Editor('createCard')
 submitEditor.codeEditor.refresh()
 
-
 // Postcard
 document.querySelector('#submitCard').addEventListener('click', () => {
-
   let front = document.querySelector('#cardFrond')
   let back = document.querySelector('.back')
   let alerta = document.querySelector('#alert')

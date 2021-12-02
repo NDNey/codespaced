@@ -52,4 +52,3 @@ $('#editCard').on('show.bs.modal', function (event) {
 
   return
 })
-

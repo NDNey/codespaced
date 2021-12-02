@@ -4,7 +4,7 @@
 
 <% if (locals.messages.success) { %>
   <div class="alert alert-info">
-    <h6>Hello <%= user.userName %> <%= messages.success %></h6> 
+    <h6>Hello, <%= user.userName %>!</h6> 
   </div>
 <% } %>
 
@@ -12,8 +12,8 @@
   <% if (decks.length) { %>
       <h3><%= user.userName %>'s Decks</h3>
   <% }else{ %>
-    <div class="alert alert-primary" role="alert">
-      <p>Start your learning experience creating a new deck and adding cards to it</p>
+    <div class="alert alert-primary text-center" role="alert">
+      <p>Start your learning experience by creating and adding new cards to a deck.</p>
     </div>
   <% } %>
   
@@ -36,7 +36,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a type="button" class="dropdown-item" href=" /study/<%= decks[i]._id%>">Study</a>
-                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard" data-whatever="<%= decks[i]._id%>">Add card</button>
+                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#addCard" data-whatever="<%= decks[i]._id%>">Add Card</button>
                 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#editDeck" data-whatever="<%= decks[i]._id%>" data-previousval="<%= decks[i].title%>">Rename</button>
                 <button class="dropdown-item" type="button" data-toggle="modal" data-target="#AlertdeleteDeck" data-id="<%= decks[i]._id%>"> Delete</button>
               </div>

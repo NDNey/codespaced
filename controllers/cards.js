@@ -48,7 +48,6 @@ module.exports = {
       console.log(err);
     }
   },studyCard: async (req, res) => {
-    
     let updates = await schedule.execute(req.body.responses, req.body.date)
     try {
       await Card.findOneAndUpdate(

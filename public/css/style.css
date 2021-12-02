@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Sen&family=Zen+Maru+Gothic&display=swap');
 * {
   box-sizing: border-box;
-  font-family: 'EB Garamond', serif;
+  /* font-family: 'EB Garamond', serif; */
+  font-family: 'Sen', sans-serif;
+  /* font-family: 'Zen Maru Gothic', sans-serif; */
 }
 p{
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
+  font-family: 'Sen', sans-serif;
+  /* font-family: 'Zen Maru Gothic', sans-serif; */
   font-size: 1.5rem;
 }
 

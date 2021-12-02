@@ -1,3 +1,8 @@
+// algorithm was addapted using:
+// https://gist.github.com/riceissa/1ead1b9881ffbb48793565ce69d7dbdd
+// https://faqs.ankiweb.net/what-spaced-repetition-algorithm.html algorithm Idea
+
+
 const newSteps = [1, 10, 6]
 const graduatingInterval = 1
 const easyInterval = 4
@@ -95,8 +100,6 @@ function schedule(card, response) {
     }
 }
 
-
-
 function minutesToDays(minutes) {
     return minutes / (60 * 24)
 }
@@ -116,8 +119,6 @@ function humanFrendlyTime(days) {
     }
 
 }
-
-
 
 function newDate(days, date) {
     date = new Date(date)
@@ -149,7 +150,6 @@ module.exports = {
         console.log(responses)
         for (let i = 0; i < responses.length; i++) {
             nextTime = schedule(card, responses[i])
-
         }
         nextSession.studyDate = newDate(nextTime, date)
 
@@ -161,9 +161,6 @@ module.exports = {
         nextSession.good = humanFrendlyTime(schedule(good, 'good'))
         nextSession.easy = humanFrendlyTime(schedule(easy, 'easy'))
 
-
         return nextSession
-
     }
-
 }

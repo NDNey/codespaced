@@ -25,8 +25,6 @@ if (document.querySelector('#studyEditor')) {
 
 const codeCard = new Editor('codeCard')
 codeCard.codeEditor.refresh()
-console.log(codeCard)
-
 // edit card
 
 document.querySelector('#editedCard').addEventListener('click', () => {
@@ -72,7 +70,6 @@ document.querySelectorAll('.next').forEach(e => e.addEventListener('click', (e) 
   let date = data.getAttribute('data-date')
   let responses = res.length > 1 ? res.split(',') : []
   responses.push(text)
-  console.log(text)
 
   fetch(`/study/schedule/${id}`, {
     method: 'put',

@@ -9,7 +9,7 @@
       </div>
     <% } else if(!cards.length){ %>
       <div class="alert alert-warning" role="alert">
-        <p>You finished this session!</p>
+        <p>You have finished this session!</p>
       </div>
     <% } else{ %>
       <div class="flip-card">
@@ -39,7 +39,7 @@
                 <p class="card-title text-center">
                   <%= cards[index].front%>
                 </p>
-                <h5 class="card-text text-center">Take your time an answer the question</h5>
+                <h5 class="card-text text-center">Take your time and answer the question:</h5>
                 <textarea id="studyEditor"></textarea>
                </div>
               </div>
@@ -50,9 +50,9 @@
                 <% } else{ %>
                   <div class="card-body text-center">
                   <div>
-                    <h5 class="card-title">
+                    <h2 class="card-title">
                       <%= cards[index].front%>
-                    </h5>
+                    </h2>
                   </div>
                 </div>
                   <div class="align-self text-center botonera">
