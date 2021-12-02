@@ -9,7 +9,15 @@
 <% } %>
 
 <section id="deckContainer">
-  <h3><%= user.userName %>'s Decks</h3>
+  <% if (decks.length) { %>
+      <h3><%= user.userName %>'s Decks</h3>
+  <% }else{ %>
+    <div class="alert alert-primary" role="alert">
+      <p>Start your learning experience creating a new deck and adding cards to it</p>
+    </div>
+  <% } %>
+  
+  
   <table class="table table-hover">
     <tbody>
       <% for(var i=0; i<decks.length; i++) {%>

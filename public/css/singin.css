@@ -12,6 +12,31 @@ main{
   img{
     height: 200px;
   }
+  .logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo h2{
+    margin: 0 5px 2px 0;
+    color: rgb(64,68,68);
+    
+  }
+  .about{
+    color: white;
+    display: flex;
+    justify-content: center;
+  
+  }
+  .about a{
+    border-bottom: 2px solid  rgba(255, 255, 255, .2);
+    text-decoration: none;
+  }
+  .about a:hover {
+    color: rgb(17,97,238);
+  
+  }
   
   
   /* /////////////////////////////////////////////////// */
@@ -217,4 +242,44 @@ main{
   
   ::placeholder {
     color: #b3b3b3
+  }
+  @media only screen and (max-width: 760px) {
+    body{
+      width: 100vw;
+      height: 100vh ;
+      background-color: rgb(228,231,237);
+    }
+   .row *{
+      width: 100%;
+      margin: 5px;
+      text-align: center;
+    }
+    .row{
+      margin:  0;
+    }
+    main{
+      /* width: 100%; */
+      /* display: unset; */
+      margin: 30px 0;
+     
+    }
+    #index, .card,.login-box{
+      margin: 1px;
+      padding: 0;
+    }
+    .login-snip {
+      margin: 0;
+    }
+    .login-space{
+      margin: 0;
+    }
+    .group {
+      margin: 0;
+      padding: 0;
+    }
+    
+   
+   
+    
+  
   }

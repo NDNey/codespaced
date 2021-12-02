@@ -1,20 +1,19 @@
 const mongoose = require("mongoose");
-const { array } = require("../middleware/multer");
 
 const cardSchema = new mongoose.Schema({
   front: {
     type: String,
     required: true,
-  },back: {
+  }, back: {
     type: String,
     required: false,
-  },codeCard: {
+  }, codeCard: {
     type: String,
     required: false,
-  },mirror: {
+  }, mirror: {
     type: String,
     required: false,
-  },responses: {
+  }, responses: {
     type: Array,
     required: true,
   },
@@ -25,33 +24,17 @@ const cardSchema = new mongoose.Schema({
   hard: {
     type: String,
     default: '6 min',
-  },good: {
+  }, good: {
     type: String,
     default: '10 min',
-  },easy: {
+  }, easy: {
     type: String,
     default: '4 D',
   },
-   deckId: {
-      type:  mongoose.Schema.Types.ObjectId,
-      ref: 'Deck',
-    },
-  // image: {
-  //   type: String,
-  //   require: true,
-  // },
-  // cloudinaryId: {
-  //   type: String,
-  //   require: true,
-  // },
-  // caption: {
-  //   type: String,
-  //   required: true,
-  // },
-  // likes: {
-  //   type: Number,
-  //   required: true,
-  // },
+  deckId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Deck',
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

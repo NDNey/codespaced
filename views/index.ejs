@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Code Spaced</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/singin.css">
@@ -18,10 +19,14 @@
         <% }) %>    
     <% } %>
     <main>
+     
     
         <div class="row">
+             <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#404444"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM80.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462"></path></g></g></svg><h2>CodeSpaced</h2> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 172 172" style="fill: #000000"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" ><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#404444"><path d="M0,93.76688v-15.53375l53.707,-27.219v16.1465l-32.29569,18.90925l32.293,18.76681v16.1465zM118.293,120.98588v-16.1465l32.293,-18.76681l-32.293,-18.90925v-16.1465l53.707,27.21631v15.53106zM64.5,137.0625l27.94462,-102.125h15.05538l-24.1875,102.125z"></path></g></g></svg>  
+             </div>
 
-            <div class="col-md-6 mx-auto p-0">
+            <div id="index" class="col-md-6 mx-auto p-0">
                 <div class="card">
                     <div class="login-box">
                         <div class="login-snip"><input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
@@ -30,7 +35,14 @@
                                     <div class="group"> <label for="user" class="label">Email</label> <input  id="user" name="email" type="text" class="input " placeholder="Enter your username"> </div>
                                     <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
                                     <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                                   
                                     <div class="hr"></div>
+                                 
+                                    <div class="about">
+                                    <a href="/about">About this app</a>
+                                    </div>
+                                  
+
                                     
                                 </form>
                                  <form class="sign-up-form" action="/signup" method="POST">

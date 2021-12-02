@@ -22,11 +22,8 @@ module.exports = {
         mirror: req.body.mirror,
         deckId:req.params.id,
         user: req.user.id,
-     
       });
       console.log("Card has been added!");
-       
-      // return  res.redirect("/profile");
     } catch (err) {
        
       console.log(err);

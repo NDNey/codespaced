@@ -1,15 +1,15 @@
-let newSteps = [1, 10,6]
-let graduatingInterval = 1
-let easyInterval = 4
-let startingEase = 250
+const newSteps = [1, 10, 6]
+const graduatingInterval = 1
+const easyInterval = 4
+const startingEase = 250
 
-let easyBonus = 230
-let internalModifier = 100
-let maximunInterval = 36500
+const easyBonus = 230
+const internalModifier = 100
+const maximunInterval = 36500
 
-let lapsesSteps = [10]
-let newInterval = 70
-let minimunInterval = 1
+const lapsesSteps = [10]
+const newInterval = 70
+const minimunInterval = 1
 
 class Card {
     constructor() {
@@ -19,7 +19,6 @@ class Card {
         this.interval = null
     }
 }
- 
 
 function schedule(card, response) {
     if (card.status == 'learning') {
@@ -39,7 +38,7 @@ function schedule(card, response) {
             card.status = 'learned'
             card.interval = easyInterval
             return easyInterval
-        }  else if (response == 'hard') {
+        } else if (response == 'hard') {
             card.stepsIndex = 2
             return minutesToDays(newSteps[card.stepsIndex])
         } else {
@@ -53,7 +52,7 @@ function schedule(card, response) {
             card.interval = Math.max(minimunInterval, card.interval * newInterval / 100)
             return minutesToDays(lapsesSteps[0])
         } else if (response == 'hard') {
-            if(card.easeFactor < 230){
+            if (card.easeFactor < 230) {
                 card.status = 'relearning'
                 card.stepsIndex = 0
                 card.easeFactor = Math.max(230, card.easeFactor - 15)
@@ -96,7 +95,7 @@ function schedule(card, response) {
     }
 }
 
- 
+
 
 function minutesToDays(minutes) {
     return minutes / (60 * 24)
@@ -107,7 +106,7 @@ function humanFrendlyTime(days) {
         return days
     }
     if (days < 1) {
-        return Math.round(days * 24 * 60) < 60 ? `${Math.round(days * 24 * 60)}  Min` : `${Math.round(days * 24 )} H`
+        return Math.round(days * 24 * 60) < 60 ? `${Math.round(days * 24 * 60)}  Min` : `${Math.round(days * 24)} H`
     } else if (days < 30) {
         return `${Math.round(days)} D`
     } else if (days < 365) {
@@ -120,63 +119,51 @@ function humanFrendlyTime(days) {
 
 
 
- function newDate(days,date) {
-     date = new Date(date)
+function newDate(days, date) {
+    date = new Date(date)
     let time = 0
     if (!days) {
-      return  date
+        return date
     }
     if (days < 1) {
         return date
-    } else if (days < 30 ) {
+    } else if (days < 30) {
         time = Math.round(days)
-        return  new Date( date.setDate(date.getDate() + time))
-    } else if (days < 365  ) {
+        return new Date(date.setDate(date.getDate() + time))
+    } else if (days < 365) {
         time = Math.round(days / (365.25 / 12))
-        return new Date( date.setMonth(date.getMonth() + time))
+        return new Date(date.setMonth(date.getMonth() + time))
     } else {
         time = Math.round(days / 365.25)
-        return new Date( date.setFullYear(date.getFullYear() + time))
+        return new Date(date.setFullYear(date.getFullYear() + time))
     }
 
 }
 
 
 module.exports = {
-      execute : (responses,date) => {
+    execute: (responses, date) => {
         let nextSession = {}
         let card = new Card
-       let nextTime
-       console.log(responses)
-        for (let i = 0; i < responses.length; i++){
-            nextTime = schedule(card,responses[i])
+        let nextTime
+        console.log(responses)
+        for (let i = 0; i < responses.length; i++) {
+            nextTime = schedule(card, responses[i])
 
         }
-        nextSession.studyDate = newDate(nextTime,date)
-       
+        nextSession.studyDate = newDate(nextTime, date)
+
         let hard = card
         let good = card
         let easy = card
-     
-        nextSession.hard = humanFrendlyTime(schedule(hard, 'hard'))
-        nextSession.good = humanFrendlyTime(schedule(good,'good'))
-        nextSession.easy = humanFrendlyTime(schedule(easy,'easy'))
 
-        
+        nextSession.hard = humanFrendlyTime(schedule(hard, 'hard'))
+        nextSession.good = humanFrendlyTime(schedule(good, 'good'))
+        nextSession.easy = humanFrendlyTime(schedule(easy, 'easy'))
+
+
         return nextSession
-    
+
     }
 
 }
-
-   
-
-
-
-
-
-
-   
-  
- 
- 

@@ -109,8 +109,20 @@ table{
 }
 
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 860px) {
   .flip-card{
     width: 100%;
+  }
+  main{
+    display: unset;
+    
+  }
+  
+  .card-body  p{
+     
+    margin: 0;
+    padding: 0;
+   
+    text-align: justify;
   }
 }
