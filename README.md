@@ -23,9 +23,6 @@ CodeSpaced will be a flashcard program for programmers that will use spaced repe
   ```js 
   PORT = 8000 'Or any port you would like'
   DB_STRING = Your database URI 'I used MongoDB when testing'
-  CLOUD_NAME = Your cloudinary cloud name
-  API_KEY = Your cloudinary api key
-  API_SECRET = Your cloudinary api secret
   ```
   - Run with 'npm start' in your terminal.
   - SingUp and enjoy
